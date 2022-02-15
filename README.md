@@ -68,8 +68,11 @@ Tooling for operations of https://0l.network
   - `./key_store.json`
   - `./0L.toml`
 
-- To create a new account
+- To create a new account using docker shell
   ```shell
+  # Access shell image 
+  docker-compose run shell
+  
   # Generate mnemonic seed phrase
   onboard keygen
   
@@ -84,7 +87,11 @@ Tooling for operations of https://0l.network
   # Create the first proof and `account.json`, the following will take about 30-40 minutes
   onboard user
   ```
-
+- If you use an existing account you have to apply changes to file `.0L/0L.toml` 
+  ```shell
+  node_home = "/root/.0L"
+  db_path = "/root/.0L/db"
+  ```
 - Use docker-compose to manage `tower` service
 
   ```shell
