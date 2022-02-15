@@ -1,8 +1,8 @@
-version: "3.8"
+version: "3.3"
 services:
 
   shell:
-    image: "${OL_IMAGE}"
+    build: .
     container_name: 0l-shell
     restart: "no"
     network_mode: host

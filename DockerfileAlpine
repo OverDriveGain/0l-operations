@@ -3,19 +3,24 @@ FROM ubuntu:20.04 AS toolchain
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+#ToDo test without alpine-sdk, libressl-dev
+
 # Install system prerequisites
-RUN apt-get update -y -q && apt-get install -y -q \
-  build-essential \
+RUN apk update && apk upgrade install && apk add \
+  alpine-sdk \
+  build-base\
   curl \
   cmake \
   clang \
   git \
-  libgmp3-dev \
-  libssl-dev \
+  bash \
+  gmp-dev \
+  openssl-dev\
+  libressl-dev \
   llvm \
   lld \
-  pkg-config \
-  && rm -rf /var/lib/apt/lists/*
+  pkgconfig \
+
 
 # Install Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain stable -y
