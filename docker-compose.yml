@@ -2,7 +2,7 @@ version: "3.3"
 services:
 
   shell:
-    build: .
+    image: "${OL_IMAGE}"
     container_name: 0l-shell
     restart: "no"
     network_mode: host
