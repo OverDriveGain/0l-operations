@@ -14,7 +14,7 @@ services:
       nproc: 100000
       nofile: 100000
     env_file:
-      - "./deploy.env"
+      - "./.env"
 
   node:
     image: "${OL_IMAGE}"
@@ -38,7 +38,7 @@ services:
       nproc: 100000
       nofile: 100000
     env_file:
-      - "./deploy.env"
+      - "./.env"
 
   tower:
     image: "${OL_IMAGE}"
@@ -58,7 +58,7 @@ services:
       NODE_ENV: "prod"
       TEST: "${OL_TOWER_TEST-n}"
     env_file:
-      - "./deploy.env"
+      - "./.env"
 
   monitor:
     image: "${OL_IMAGE}"
@@ -78,7 +78,7 @@ services:
       nproc: 100000
       nofile: 100000
     env_file:
-      - "./deploy.env"
+      - "./.env"
 
 volumes:
   node_data:
